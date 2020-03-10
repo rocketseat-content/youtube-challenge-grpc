@@ -1,0 +1,19 @@
+{
+  "name": "hidra",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "bcryptjs": "^2.4.3",
+    "grpc": "^1.24.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
