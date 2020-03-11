@@ -1,28 +1,19 @@
 const HidraService = require('../services/hidra');
 
+const { promisify } = require('util');
+
 module.exports = async (req, res, next) => {
   try {
-    const response = await new Promise((resolve, reject) => {
-      HidraService.authenticate(
-        { token: req.headers.authorization },
-        (err, response) => {
-          if (err || response.error) {
-            reject(err || response);
-          } else {
-            resolve(response);
-          }
-        }
-      );
+    const response = await HidraService.authenticate({
+      token: req.headers.authorization,
     });
 
-    console.log(response);
+    if (response.error) throw new Error(response.error);
 
     req.userId = response.user.id;
 
     next();
-  } catch (err) {
-    console.log(err);
-
-    return res.status(401).send(err);
+  } catch ({ message }) {
+    return res.status(401).json({ error: message });
   }
 };

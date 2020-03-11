@@ -1,19 +1,9 @@
-const path = require('path');
-const grpc = require('grpc');
-const protoLoader = require('@grpc/proto-loader');
+const load = require('../pb/loader');
 
-const protoConfig = require('../config/proto');
+const HidraClient = load({
+  serviceName: 'UserService',
+  address: 'localhost:3334',
+  fileName: 'hidra',
+});
 
-const hidraDef = protoLoader.loadSync(
-  path.resolve(__dirname, '..', 'pb', 'hidra.proto'),
-  protoConfig
-);
-
-const hidra = grpc.loadPackageDefinition(hidraDef);
-
-const hidraClient = new hidra.UserService(
-  'localhost:3334',
-  grpc.credentials.createInsecure()
-);
-
-module.exports = hidraClient;
+module.exports = HidraClient;

@@ -23,7 +23,7 @@ UserSchema.methods = {
 UserSchema.statics = {
   generateToken({ id }) {
     return jwt.sign({ id }, 'Rodz & Higo', {
-      expiresIn: 86400,
+      expiresIn: '7d',
     });
   },
 };

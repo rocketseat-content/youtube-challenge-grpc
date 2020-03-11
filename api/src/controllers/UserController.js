@@ -4,15 +4,7 @@ class UserController {
   async show(req, res) {
     const { id } = req.params;
 
-    const response = await new Promise((resolve, reject) => {
-      HidraService.getUserById({ id }, (err, response) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(response);
-        }
-      });
-    });
+    const response = await HidraService.getUserById({ id });
 
     return res.json(response);
   }
@@ -20,17 +12,8 @@ class UserController {
   async store(req, res) {
     const { email, username, password } = req.body;
 
-    const response = await new Promise((resolve, reject) => {
-      HidraService.registerUser(
-        { user: { email, username, password } },
-        (err, response) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(response);
-          }
-        }
-      );
+    const response = await HidraService.registerUser({
+      user: { email, username, password },
     });
 
     return res.json(response);

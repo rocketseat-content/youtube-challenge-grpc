@@ -39,8 +39,10 @@ module.exports = {
       return callback(null, { error: 'Invalid password' });
     }
 
+    const token = User.generateToken(user);
+
     return callback(null, {
-      token: User.generateToken(user),
+      token,
     });
   },
   async authenticate(call, callback) {
