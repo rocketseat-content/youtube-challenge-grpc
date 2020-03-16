@@ -1,0 +1,25 @@
+{
+  "name": "protos",
+  "author": {
+    "name": "Guilherme Rodz"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && pbjs -t static-module -w commonjs -o dist/index.js ./pb/*.proto",
+    "postbuild": "pbts -o dist/index.d.ts dist/index.js && echo \"Generated files! 🚀\" && rm -rf node_modules"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "google-protobuf": "^3.11.4",
+    "grpc": "^1.24.2",
+    "protobufjs": "^6.8.9",
+    "protoc-gen-grpc": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/google-protobuf": "^3.7.2",
+    "typescript": "^3.8.3"
+  }
+}

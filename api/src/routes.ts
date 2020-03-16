@@ -1,10 +1,10 @@
-const { Router } = require('express');
+import { Router } from 'express';
 
-const UserController = require('./controllers/UserController');
-const PurchaseController = require('./controllers/PurchaseController');
-const SessionController = require('./controllers/SessionController');
+import UserController from './controllers/UserController';
+import PurchaseController from './controllers/PurchaseController';
+import SessionController from './controllers/SessionController';
 
-const authMiddleware = require('./middlewares/auth');
+import authMiddleware from './middlewares/auth';
 
 const router = Router();
 
@@ -19,4 +19,4 @@ router.get('/purchases', PurchaseController.index);
 router.get('/purchases/:id', PurchaseController.show);
 router.post('/purchases', PurchaseController.store);
 
-module.exports = router;
+export default router;

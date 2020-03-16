@@ -4,15 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "ts-node-dev --respawn --transpileOnly --no-notify src/index.ts"
   },
   "dependencies": {
-    "@grpc/proto-loader": "^0.5.3",
     "express": "^4.17.1",
     "grpc": "^1.24.2",
-    "mongoose": "^5.9.4"
+    "mongoose": "^5.9.4",
+    "protos": "../protos"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "@types/mongoose": "^5.7.5",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
   }
 }

@@ -11,8 +11,13 @@ message GetPurchaseByIdRequest {
   string id = 1;
 }
 
-message PurchaseRequest {
+message HandlePurchaseRequest {
   Purchase purchase = 1;
+}
+
+message PurchaseResponse {
+  Purchase purchase = 1;
+  string error = 2;
 }
 
 message ListPurchasesRequest {
@@ -21,14 +26,11 @@ message ListPurchasesRequest {
 
 message ListPurchasesResponse {
   repeated Purchase purchases = 1;
-}
-
-message PurchaseResponse {
-  Purchase purchase = 1;
+  string error = 2;
 }
 
 service PurchaseService {
-  rpc getPurchaseById(GetPurchaseByIdRequest) returns (PurchaseResponse);
-  rpc listPurchases(ListPurchasesRequest) returns (ListPurchasesResponse);
-  rpc purchase(PurchaseRequest) returns (PurchaseResponse);
+  rpc GetPurchaseById(GetPurchaseByIdRequest) returns (PurchaseResponse);
+  rpc ListPurchases(ListPurchasesRequest) returns (ListPurchasesResponse);
+  rpc HandlePurchase(HandlePurchaseRequest) returns (PurchaseResponse);
 }

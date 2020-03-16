@@ -43,11 +43,12 @@ Code Challenge - gRPC microservices
 ## Getting started
 
 1. Clone this repository;<br />
-2. Run `npm or yarn install` at each project in order to install dependencies.<br />
-3. Run `yarn dev` on microservices.<br />
-4. Run `yarn dev` on API.<br />
-5. Enjoy sending requests to REST API available at `http://localhost:3333`.<br />
-   5.1. You can import `Insomnia file` inside `api` folder.<br />
+2. Start MongoDB. Docker snippet: `docker run -d --name=mongo-grpc -p 27017:27017 bitnami/mongodb`<br />
+3. Run `npm or yarn install` at each project in order to install dependencies.<br />
+4. Run `yarn dev` on both microservices.<br />
+5. Run `yarn dev` on API.<br />
+6. Enjoy sending requests to REST API available at `http://localhost:3333`.<br />
+   6.1. You can import `Insomnia file` inside `api` folder.<br />
 
 ## Contributing
 

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+message User {
+  string id = 1;
+  string email = 2;
+  string username = 3;
+  string password = 4;
+}
+
+message GetUserByIdRequest {
+  string id = 1;
+}
+
+message RegisterUserRequest {
+  User user = 1;
+}
+
+message AuthenticationRequest {
+  string token = 1;
+}
+
+message UserResponse {
+  User user = 1;
+  string error = 2;
+}
+
+message LoginUserRequest {
+  User user = 1;
+}
+
+message LoginResponse {
+  string token = 1;
+  string error = 2;
+}
+
+service UserService {
+  rpc GetUserById(GetUserByIdRequest) returns (UserResponse);
+  rpc RegisterUser(RegisterUserRequest) returns (UserResponse);
+  rpc Authenticate(AuthenticationRequest) returns (UserResponse);
+  rpc LoginUser(LoginUserRequest) returns (LoginResponse);
+}
