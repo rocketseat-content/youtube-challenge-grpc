@@ -1,6 +1,9 @@
 import mongoose, { Document, Model } from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { promisify } from 'util';
+
+import authConfig from '../config/auth';
 
 export interface IUser extends Document {
   id: string;
@@ -12,6 +15,7 @@ export interface IUser extends Document {
 
 export interface IUserModel extends Model<IUser> {
   generateToken: (id: string) => string;
+  verifyToken: (token: string) => Promise<{ id: string }>;
 }
 
 export const UserSchema = new mongoose.Schema({
@@ -40,9 +44,14 @@ UserSchema.methods = {
 
 UserSchema.statics = {
   generateToken(id: string) {
-    return jwt.sign({ id }, 'Rodz & Higo', {
+    return jwt.sign({ id }, authConfig.secret, {
       expiresIn: '7d',
     });
+  },
+  verifyToken(token: string) {
+    return promisify(jwt.verify)(token, authConfig.secret) as Promise<{
+      id: string;
+    }>;
   },
 };
 

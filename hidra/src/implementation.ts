@@ -1,6 +1,5 @@
 import { handleUnaryCall } from 'grpc';
 import jwt from 'jsonwebtoken';
-import { promisify } from 'util';
 
 import {
   IUser,
@@ -93,9 +92,7 @@ const implementation: UserService = {
     }
 
     try {
-      const decoded = (await promisify(jwt.verify)(token, 'Rodz & Higo')) as {
-        id: string;
-      };
+      const decoded = await User.verifyToken(token);
 
       const user = await User.findById(decoded.id);
 
