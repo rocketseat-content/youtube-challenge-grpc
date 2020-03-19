@@ -1,0 +1,4 @@
+{
+  "eslint.workingDirectories": ["api", "hidra", "nix", "protos"],
+  "eslint.enable": true
+}

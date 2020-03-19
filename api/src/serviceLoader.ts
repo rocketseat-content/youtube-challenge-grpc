@@ -1,6 +1,5 @@
 import grpc from 'grpc';
 import { promisify } from 'util';
-import protobuf from 'protobufjs';
 
 import loadProto from 'protos/dist/loader';
 
@@ -24,7 +23,7 @@ export default function loadService<ServiceType extends protobuf.rpc.Service>({
 }: ILoadServiceDTO) {
   const proto = loadProto(fileName);
 
-  const client = new proto[serviceName](address, credentials);
+  const client = new (proto[serviceName] as any)(address, credentials);
 
   // Promisify all client methods
   (Object.entries(client.__proto__) as [[string, IGRPCMethod]]).map(

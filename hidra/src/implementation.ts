@@ -1,5 +1,4 @@
 import { handleUnaryCall } from 'grpc';
-import jwt from 'jsonwebtoken';
 
 import {
   IUser,
