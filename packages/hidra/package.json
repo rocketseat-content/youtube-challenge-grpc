@@ -1,0 +1,37 @@
+{
+  "name": "hidra",
+  "version": "0.0.0",
+  "description": "User Service",
+  "author": "Guilherme Rodz <guilherme.rodrigues.profissional@gmail.com>",
+  "homepage": "https://github.com/Rocketseat/youtube-challenge-grpc#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rocketseat/youtube-challenge-grpc.git"
+  },
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpileOnly --no-notify -r tsconfig-paths/register src/index.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/Rocketseat/youtube-challenge-grpc/issues"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "bcryptjs": "^2.4.3",
+    "grpc": "^1.24.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.3.8",
+    "@types/mongoose": "^5.7.5"
+  }
+}

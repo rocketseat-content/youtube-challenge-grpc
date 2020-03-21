@@ -1,0 +1,37 @@
+{
+  "name": "protos",
+  "version": "0.0.0",
+  "description": "Serve protocol buffers files",
+  "author": "Guilherme Rodz <guilherme.rodrigues.profissional@gmail.com>",
+  "homepage": "https://github.com/Rocketseat/youtube-challenge-grpc#readme",
+  "license": "MIT",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "dist",
+    "pb"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rocketseat/youtube-challenge-grpc.git"
+  },
+  "scripts": {
+    "prebuild": "rm -rf generated && mkdir generated",
+    "build": "pbjs -t static-module -w commonjs -o generated/index.js pb/*.proto && pbts -o generated/index.d.ts generated/index.js",
+    "postbuild": "echo \"Generated files! 🚀\""
+  },
+  "bugs": {
+    "url": "https://github.com/Rocketseat/youtube-challenge-grpc/issues"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "google-protobuf": "^3.11.4",
+    "grpc": "^1.24.2",
+    "protobufjs": "^6.8.9",
+    "protoc-gen-grpc": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/google-protobuf": "^3.7.2"
+  }
+}

@@ -1,4 +1,5 @@
 {
   "eslint.workingDirectories": ["api", "hidra", "nix", "protos"],
-  "eslint.enable": true
+  "eslint.enable": true,
+  "prettier.configPath": ".prettierrc"
 }

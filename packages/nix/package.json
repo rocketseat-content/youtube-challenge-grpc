@@ -1,0 +1,33 @@
+{
+  "name": "nix",
+  "version": "0.0.0",
+  "description": "Purchase Service",
+  "author": "Guilherme Rodz <guilherme.rodrigues.profissional@gmail.com>",
+  "homepage": "https://github.com/Rocketseat/youtube-challenge-grpc#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rocketseat/youtube-challenge-grpc.git"
+  },
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpileOnly --no-notify -r tsconfig-paths/register src/index.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/Rocketseat/youtube-challenge-grpc/issues"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "grpc": "^1.24.2",
+    "mongoose": "^5.9.4"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.7.5"
+  }
+}

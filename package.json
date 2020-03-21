@@ -1,0 +1,29 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "build:protos": "yarn workspace protos build",
+    "dev:nix": "yarn workspace nix dev",
+    "dev:hidra": "yarn workspace hidra dev",
+    "dev:api": "yarn workspace api dev"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "lerna": "^3.20.2",
+    "prettier": "^1.19.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.8.3"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}

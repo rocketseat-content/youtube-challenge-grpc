@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "description": "Back-end",
+  "author": "Guilherme Rodz <guilherme.rodrigues.profissional@gmail.com>",
+  "homepage": "https://github.com/Rocketseat/youtube-challenge-grpc#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rocketseat/youtube-challenge-grpc.git"
+  },
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpileOnly --no-notify -r tsconfig-paths/register src/index.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/Rocketseat/youtube-challenge-grpc/issues"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.3"
+  }
+}
